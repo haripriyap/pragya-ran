@@ -3,6 +3,11 @@ add_library(mac STATIC)
 target_include_directories(mac PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 file(GLOB MAC_SOURCES "*.cpp")
-add_library(mac ${MAC_SOURCES})
+if (NOT TARGET mac)
+    add_library(mac
+        mac.cpp
+        mac_helpers.cpp
+    )
+endif()
 
 
